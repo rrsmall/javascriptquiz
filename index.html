@@ -14,12 +14,57 @@
     Score is kept in the bottom corner and for every correct answer it increases by 1.
     Score 80% to be considered a whiz! Click the start quiz button below to begin!<br></p>
 
+    <form id = "quiz" name="quiz">
+
+      <div id ="question1">
+        <p class = "questions">1. What is the next number in this sequence?<br>
+          2, 4, 6, __, 10?</p>
+          <input type ="radio" id="mc" name= "question1" value ="7"> 7 <br>
+          <input type ="radio" id="mc" name= "question1" value ="8"> 8 <br>
+          <input type ="radio" id="mc" name= "question1" value ="9"> 9 <br>
+    </div>
+
+    <div id ="question2">
+      <p class="questions">2. Which one is the apple?</p>
+      <div class="row">
+        <div class="column">
+      <input type="image" src="choiceA.png" style="width:100%">
+        </div>
+        <div class="column">
+      <input type="image" src="choiceB.png" style="width:100%">
+      </div>
+        <div class="column">
+      <input type="image" src="choiceC.png" style="width:100%">
+      </div>
+
+    </div>
+
+    <div id ="question3">
+      <p class="questions">3. How many triangles are in this picture?</p>
+      <img src ="triangles.png"><br>
+      <input type="text" id="tb" name="question3">
+    </div>
+
+    <div id="question4">
+      <p class="questions">4. Which fictional city is the home of Batman?</p>
+      <input type="radio" id="mc" name="question4" value="Gotham City"> Gotham City<br>
+      <input type="radio" id="mc" name="question4" value="No city"> No City <br>
+      <input type="radio" id="mc" name="question4" value="Krypton City"> Krypton City <br>
+      <input type="radio" id="mc" name="question4" value="Queens"> Queens <br>
+      </div>
+
+
+    <div id="question5">
+      <p class="questions">5. How many bones does the adult human body have?</p>
+        <input type="text" id="tb" name="question5">
+      </div>
+
   <div class="quiz-container">
     <div id = "quiz"> </div>
   </div>
   <button id="previous">Previous Question</button>
   <button id="next">Next Question</button>
-    <button id="submit">Submit Quiz</button>
+
     <div id ="results"></div>
 
 

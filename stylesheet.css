@@ -13,6 +13,27 @@ body {
   padding-right: 25px;
 }
 
+p {
+    text-align:center;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float:left;
+  width:33.33%;
+  padding: 2px;
+}
+
+.row::after {
+  content: " ";
+  clear: both;
+  display: table;
+}
+
 button {
   font-family: optima, sans-serif;
   background-color:white;
