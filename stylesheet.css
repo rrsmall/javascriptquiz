@@ -1,0 +1,22 @@
+h1 {
+  font-family: optima, sans-serif;
+  color: #0080ff;
+  text-align: center;
+}
+
+body {
+  font-family: optima, sans-serif;
+  background-color: white;
+  border: 5px solid #0080ff;
+  padding: 5px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+button {
+  font-family: optima, sans-serif;
+  background-color:white;
+  border: 0px;
+  padding: 20px;
+  cursor: pointer;
+}
