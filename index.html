@@ -1,83 +1,120 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="stylesheet.css"/>
-      <script src="quiz.js"></script>
-
+    <meta charset="utf-8"/>
     <title>Javascript Quiz</title>
-  </head>
+      <link rel="stylesheet" href="stylesheet.css"/>
+      <script type="text/javascript">
 
+      //position of either question and index
+      var position = 0;
+      var correct = 0;
+      var question, test, test_status, correctAnswer, answers, choiceA, choiceB, choiceC;
+      //missing variables - how do you input textbox using innerhtml, element id ?
+
+      var questions = [
+        ["What is the next number in this sequence:<br> 2, 4, 6, __, 10?", "7","8","9","B"],
+        ["Which fictional city is the home of Batman?","Gotham City","Krypton City","Queens","A"],
+        ["Which one is the apple?", 'choiceA.png','choiceB.png', 'choiceC.png', "C"]
+      ];
+
+      //shortcut to using getElementById
+      function get(x) {
+        return document.getElementById(x);
+      }
+
+      function renderQuestion(){
+        test = get("test");
+
+  // add score keeper with percentage
+  if (correct == 0) {
+    test.innerHTML = "<h2>" + correct + " questions correct</h2>";
+  }
+
+  if (correct == 1) {
+    test.innerHTML = "<h2>" + correct + " questions correct</h2>";
+  }
+
+  if (correct == 2) {
+    test.innerHTML = "<h2>" + correct + " questions correct</h2>";
+  }
+
+        if (position >= questions.length) {
+          //test.innerHTML = "<h2>You got " + correct + " of " + questions.length + " questions correct</h2>";
+          get("test_status").innerHTML = "Test Completed";
+
+          position = 0;
+          correct = 0;
+
+          return false;
+      }
+//if correct == 0 {score: 0%}
+//if correct == 1 {score: 20%}
+//if correct == 2 {score: 40%}
+//if correct == 3 {score: 60%}
+//if correct == 4 {score: 80%}
+//if correct == 5 {score: 100%}
+
+
+        get("test_status").innerHTML = "Question " + (position+1) + " of " + questions.length;
+        //array from above positions
+          question = questions[position][0];
+          choiceA = questions[position][1];
+          choiceB = questions[position][2];
+          choiceC = questions[position][3];
+
+          test.innerHTML+="<h3>"+question+"</h3>";
+
+          test.innerHTML+="<input type='radio' name='answers' value='A'> "+choiceA+"<br>";
+          test.innerHTML+="<input type='radio' name='answers' value='B'> "+choiceB+"<br>";
+          test.innerHTML+="<input type='radio' name='answers' value='C'> "+choiceC+"<br><br>";
+
+          test.innerHTML+="<button onclick='checkAnswer()'>Submit Answer</button>";
+      }
+
+      function checkAnswer(){
+        answers = document.getElementsByName("answers");
+        for (var i=0; i<answers.length; i++) {
+          if (answers[i].checked) {
+            correctAnswer = answers[i].value;
+          }
+        }
+
+        if (correctAnswer == questions[position][4]) {
+          correct++;
+      //    answerIsCorrect();
+        }
+    //    else {
+      //    answerIsWrong();
+      //  }
+
+        position++;
+        renderQuestion();
+      }
+
+//   get ('correctAnswer')
+//function answerIsCorrect(){
+//        document.getElementById(correctAnswer).style.color = "green";
+//      }
+//    get ('correctAnswer')
+//      function answerIsWrong(){
+//        document.getElementById(correctAnswer).style.color = "red";
+//      }
+
+      window.addEventListener("load", renderQuestion);
+
+      </script>
+
+  </head>
   <body>
     <h1> Javascript Quiz </h1>
 
-  <p>This is a simple interactive javascript quiz! Questions range from Pre-K Math to Pre Calculus.
-    Score is kept in the bottom corner and for every correct answer it increases by 1.
-    Score 80% to be considered a whiz! Click the start quiz button below to begin!<br></p>
+  <p>This is a simple interactive javascript quiz! Score is kept in the bottom corner and
+    for every correct answer it increases by 1. Score 80% to be considered a whiz!
+    Click the start quiz button below to begin!<br></p>
 
-    <form id = "quiz" name="quiz">
-
-      <div id ="question1">
-        <p class = "questions">1. What is the next number in this sequence?<br>
-          2, 4, 6, __, 10?</p>
-          <input type ="radio" id="mc" name= "question1" value ="7"> 7 <br>
-          <input type ="radio" id="mc" name= "question1" value ="8"> 8 <br>
-          <input type ="radio" id="mc" name= "question1" value ="9"> 9 <br>
-    </div>
-
-    <div id ="question2">
-      <p class="questions">2. Which one is the apple?</p>
-      <div class="row">
-        <div class="column">
-      <input type="image" src="choiceA.png" style="width:100%">
-        </div>
-        <div class="column">
-      <input type="image" src="choiceB.png" style="width:100%">
-      </div>
-        <div class="column">
-      <input type="image" src="choiceC.png" style="width:100%">
-      </div>
-
-    </div>
-
-    <div id ="question3">
-      <p class="questions">3. How many triangles are in this picture?</p>
-      <img src ="triangles.png"><br>
-      <input type="text" id="tb" name="question3">
-    </div>
-
-    <div id="question4">
-      <p class="questions">4. Which fictional city is the home of Batman?</p>
-      <input type="radio" id="mc" name="question4" value="Gotham City"> Gotham City<br>
-      <input type="radio" id="mc" name="question4" value="No city"> No City <br>
-      <input type="radio" id="mc" name="question4" value="Krypton City"> Krypton City <br>
-      <input type="radio" id="mc" name="question4" value="Queens"> Queens <br>
-      </div>
-
-
-    <div id="question5">
-      <p class="questions">5. How many bones does the adult human body have?</p>
-        <input type="text" id="tb" name="question5">
-      </div>
-
-  <div class="quiz-container">
-    <div id = "quiz"> </div>
-  </div>
-  <button id="previous">Previous Question</button>
-  <button id="next">Next Question</button>
-
-    <div id ="results"></div>
-
-
-
-
-
-
-
-
-  <div id = "scoreContainer"
-  </div>
-
-
+    <h2 id="test_status"></h2>
+    <div id="test"></div>
 
   </body>
-  </html>
+</html>
