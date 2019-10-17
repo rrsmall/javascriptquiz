@@ -11,12 +11,8 @@ body {
   padding: 5px;
   padding-left: 25px;
   padding-right: 25px;
+  text-align:center;
 }
-
-p {
-    text-align:center;
-}
-
 
 * {
   box-sizing: border-box;
