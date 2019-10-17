@@ -14,8 +14,10 @@
 
       var questions = [
         ["What is the next number in this sequence:<br> 2, 4, 6, __, 10?", "7","8","9","B"],
-        ["Which fictional city is the home of Batman?","Gotham City","Krypton City","Queens","A"],
-        ["Which one is the apple?", 'choiceA.png','choiceB.png', 'choiceC.png', "C"]
+        ["Which fictional city is the home of Batman?","Gotham City","New York City","Queens","A"],
+        ["Which is more, 2 cups or 1 pint?", "2 cups","1 pint", "neither; they are equal", "C"],
+        ["What is the largest ocean in the world?", "Atlantic", "Indian", "Pacific", "C"],
+        ["What is 1+1?", "Don't pick me", "2", "Go back up", "B"]
       ];
 
       //shortcut to using getElementById
@@ -31,16 +33,26 @@
     test.innerHTML = "<h2>" + correct + " questions correct</h2>";
   }
 
-  if (correct == 1) {
+  if (correct ==) {
     test.innerHTML = "<h2>" + correct + " questions correct</h2>";
   }
 
   if (correct == 2) {
     test.innerHTML = "<h2>" + correct + " questions correct</h2>";
   }
+  if (correct == 3) {
+    test.innerHTML = "<h2>" + correct + " questions correct</h2>";
+  }
+  if (correct == 4) {
+    test.innerHTML = "<h2>" + correct + " questions correct</h2>";
+  }
+  if (correct == 5) {
+    test.innerHTML = "<h2>" + correct + " questions correct</h2>";
+  }
 
         if (position >= questions.length) {
-          //test.innerHTML = "<h2>You got " + correct + " of " + questions.length + " questions correct</h2>";
+          test.innerHTML = "<h2>You got " + correct + " of " + questions.length + " questions correct</h2>";
+          test.innerHTML =
           get("test_status").innerHTML = "Test Completed";
 
           position = 0;
@@ -48,6 +60,8 @@
 
           return false;
       }
+
+
 //if correct == 0 {score: 0%}
 //if correct == 1 {score: 20%}
 //if correct == 2 {score: 40%}
@@ -82,24 +96,14 @@
 
         if (correctAnswer == questions[position][4]) {
           correct++;
-      //    answerIsCorrect();
+          //document.getElementById(correctAnswer).style.color="green";
         }
-    //    else {
-      //    answerIsWrong();
+    //   else {
+      //   document.getElementById(correctAnswer).style.color="red";
       //  }
-
         position++;
         renderQuestion();
       }
-
-//   get ('correctAnswer')
-//function answerIsCorrect(){
-//        document.getElementById(correctAnswer).style.color = "green";
-//      }
-//    get ('correctAnswer')
-//      function answerIsWrong(){
-//        document.getElementById(correctAnswer).style.color = "red";
-//      }
 
       window.addEventListener("load", renderQuestion);
 
